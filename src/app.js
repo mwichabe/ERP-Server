@@ -22,7 +22,7 @@ if (process.env.FRONTEND_URL) {
 
 // 2. Always allow localhost:8080 for development/local testing
 allowedOrigins.push('http://localhost:8080');
-allowedOrigins.push('http://localhost:3000'); 
+allowedOrigins.push('https://erp-2od.pages.dev'); 
 
 // Configure CORS
 app.use(cors({
