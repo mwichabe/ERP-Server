@@ -9,6 +9,7 @@ const inventoryRoutes = require('./routes/inventoryRoutes');
 const mlRoutes = require('./routes/mlRoutes');
 const supportRoutes = require('./routes/supportRoutes');
 const roleRequestRoutes = require('./routes/roleRequestRoutes');
+const userRoutes = require('./routes/userRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -23,7 +24,7 @@ if (process.env.FRONTEND_URL) {
 // 2. Always allow localhost:8080 for development/local testing
 allowedOrigins.push('http://localhost:8080');
 allowedOrigins.push('https://erp-2od.pages.dev'); 
-
+allowedOrigins.push('https://forge-finance-stack.vercel.app');
 // Configure CORS
 app.use(cors({
   origin: (origin, callback) => {
@@ -59,6 +60,7 @@ app.use('/api/inventory', inventoryRoutes);
 app.use('/api/ml', mlRoutes);
 app.use('/api/support', supportRoutes);
 app.use('/api/role-requests', roleRequestRoutes);
+app.use('/api/user', userRoutes);
 
 // Health check endpoint
 app.get('/health', (req, res) => {
